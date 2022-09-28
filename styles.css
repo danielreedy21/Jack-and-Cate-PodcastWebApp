@@ -1,0 +1,40 @@
+header {
+background-color: #04AA6D;
+width: fit-content;
+}
+body {
+background-color: rgb(227, 231, 229);
+}
+h1 {
+
+}
+h3 {
+
+}
+h4 {
+
+}
+p {
+    width: 50%;
+}
+table {
+background-color: lightgrey;
+border: 1px solid #04AA6D;
+width: 50%;
+}
+thead {
+    border: 1px solid darkgray;
+}
+tr {
+border: 1px solid black;
+}
+th {
+
+}
+tbody {
+
+}
+td {
+
+}
+
