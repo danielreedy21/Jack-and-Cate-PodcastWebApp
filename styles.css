@@ -1,11 +1,74 @@
-header {
-background-color: #04AA6D;
-width: fit-content;
-}
+
+
+
 body {
-background-color: rgb(227, 231, 229);
+    background-color: rgb(227, 231, 229);
+    align-content: center;
+    margin:auto;
+    text-align: center;
 }
+
+/* entire background of the header */
+header {
+    height: 5.2rem;
+    background-color: black;
+    
+    /* align items centrally */
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    
+    /* padding around the green box */
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+
+.titleBackground {
+    background-color: #04AA6D;
+
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    color: white;
+
+    width: 14rem;
+    height: 4rem;
+    
+    border: 1px solid white;
+    
+    /* align items centrally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 h1 {
+    text-align: center;
+    justify-self: center;
+}
+
+.betweenTitleNav {
+    width: 50%;
+}
+
+nav {
+    background-color: white;
+    height: 4rem;
+    width: 15rem;
+    display: flex;
+    justify-self: right;
+    align-self: right;
+}
+a {
+    color: blue;
+    margin-right: white;
+}
+
+
+section{
+    margin: auto;
+    text-align: center;
 
 }
 h3 {
@@ -15,26 +78,33 @@ h4 {
 
 }
 p {
-    width: 50%;
+    width: 75%;
+    margin: auto;
 }
 table {
-background-color: lightgrey;
-border: 1px solid #04AA6D;
-width: 50%;
+    background-color: lightgrey;
+    border: 1px solid #04AA6D;
+    width: 50%;
+    margin: auto;
 }
 thead {
     border: 1px solid darkgray;
 }
 tr {
-border: 1px solid black;
+    border: 1px solid darkgray;
 }
 th {
-
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
 }
 tbody {
 
 }
 td {
+    border: 1px solid rgb(100, 100, 100);
+}
+footer{
 
 }
 
