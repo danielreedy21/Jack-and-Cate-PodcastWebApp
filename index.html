@@ -6,6 +6,13 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Merriweather&family=Raleway:ital,wght@0,400;1,700&family=Roboto&display=swap" rel="stylesheet">
+
+
     <title>Jack and Cate - Podcast</title>
 </head>
 
@@ -14,18 +21,23 @@
 <body>
     <header>
         <div class="titleBackground">
-            <h1>Jack and Cate</h1>
+            <h1 class="titleHeader">Jack and Cate</h1>
         </div>
-        <div class="betweenTitleNav">
-
-        </div>
+    
+        <nav class="betweenTitleNav">
+            <ul class="sectionsList">
+                <li><a class="sectionButtons">About Us</a></li>
+                <li><a class="sectionButtons">Episodes</a></li>
+                <li><a class="sectionButtons">Schedule</a></li>
+            </ul>
+        </nav>
+    
         
-        <nav>
-            <a href="http://spotify.com">Spotify</a>
-            <a href="http://twitter.com">Twitter</a>
+        <nav class="socialsContainer">
+            <a href="http://spotify.com" class="socialsLinks">Spotify</a>
+            <a href="http://twitter.com" class="socialsLinks">Twitter</a>
         </nav>
     </header>
-    <hr>
     <main>
         <h3>Welcome to our Podcast!</h3>
         <section>
@@ -35,6 +47,8 @@
         </section>
         <section>
             <h4>Episodes</h4>
+            <button id="testButton" type="button"> Press Me! </button>
+            <p id="clicks">0</p>
             <table>
                 <!-- <caption>Upcoming Episodes</caption> -->
                 <thead>
@@ -87,10 +101,10 @@
             </table>
         </section>
     </main>
-    <hr>
     <footer>
         <p>Version 1.0</p>
     </footer>
+    <script src="index.js"></script>
 </body>
 
 

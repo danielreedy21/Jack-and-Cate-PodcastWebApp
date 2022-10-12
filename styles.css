@@ -1,11 +1,9 @@
-
-
-
 body {
     background-color: rgb(227, 231, 229);
     align-content: center;
     margin:auto;
     text-align: center;
+    font-family: 'Raleway', sans-serif;
 }
 
 /* entire background of the header */
@@ -43,24 +41,49 @@ header {
     align-items: center;
 }
 
-h1 {
+.titleHeader {
     text-align: center;
     justify-self: center;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-style: italic;
 }
 
 .betweenTitleNav {
     width: 50%;
+    color: white;
+    background-color: black;
+    
+    /* align self centrally */
+    justify-self: center;
+    align-self: center;
+    
 }
 
-nav {
+.sectionsList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.sectionsList li {
+    display: inline;
+}
+.sectionButtons {
+    padding: 14px 16px;
+}
+.sectionButtons:hover {
+    background-color: #292929;
+}
+
+.socialsContainer {
     background-color: white;
     height: 4rem;
-    width: 15rem;
+    width: 14rem;
     display: flex;
     justify-self: right;
     align-self: right;
 }
-a {
+.socialsLinks {
     color: blue;
     margin-right: white;
 }
@@ -69,13 +92,6 @@ a {
 section{
     margin: auto;
     text-align: center;
-
-}
-h3 {
-
-}
-h4 {
-
 }
 p {
     width: 75%;
@@ -98,13 +114,18 @@ th {
     border-right: 1px solid black;
     border-left: 1px solid black;
 }
-tbody {
 
-}
 td {
     border: 1px solid rgb(100, 100, 100);
 }
-footer{
-
+main {
+    padding-bottom: 1.5in;
 }
-
+footer {
+    background-color: black;
+    color: white;
+    height:4in;
+    padding-top: 50px;
+    border-top: 5px;
+    border-color: white;
+}
