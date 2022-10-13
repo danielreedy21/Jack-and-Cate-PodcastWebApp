@@ -1,15 +1,17 @@
 body {
-    background-color: rgb(227, 231, 229);
+    background-color: #FFF5EA;
     align-content: center;
-    margin:auto;
+    margin:0;
     text-align: center;
     font-family: 'Raleway', sans-serif;
+    padding: 0;
 }
 
 /* entire background of the header */
 header {
-    height: 5.2rem;
-    background-color: black;
+    height: 4rem;
+    width: 100%;
+    background-color: #402E32;
     
     /* align items centrally */
     display: flex;
@@ -21,10 +23,18 @@ header {
     padding-bottom: .5rem;
     padding-left: .5rem;
     padding-right: .5rem;
+
+    /* keep at top of page */
+    position: fixed;
+    top: 0;
+    margin: 0;
+    overscroll-behavior-y: none;
 }
 
+
+/* for the podcast logo */
 .titleBackground {
-    background-color: #04AA6D;
+    background-color: #CC570F;
 
     text-align: center;
     font-family: Helvetica, sans-serif;
@@ -39,8 +49,9 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-}
 
+    justify-self: left;
+}
 .titleHeader {
     text-align: center;
     justify-self: center;
@@ -49,10 +60,12 @@ header {
     font-style: italic;
 }
 
+
+/* wrapper for the section navigator */
 .betweenTitleNav {
     width: 50%;
-    color: white;
-    background-color: black;
+    color: #FFF5EA;
+    background-color: #402E32;
     
     /* align self centrally */
     justify-self: center;
@@ -60,6 +73,7 @@ header {
     
 }
 
+/* for the section navigator */
 .sectionsList {
     list-style-type: none;
     margin: 0;
@@ -70,13 +84,16 @@ header {
 }
 .sectionButtons {
     padding: 14px 16px;
+    transition: 0.2s;
 }
 .sectionButtons:hover {
-    background-color: #292929;
+    background-color: #B6866E;
 }
 
+
+/* for the social media icons */
 .socialsContainer {
-    background-color: white;
+    background-color: #FFF5EA;
     height: 4rem;
     width: 14rem;
     display: flex;
@@ -85,8 +102,9 @@ header {
 }
 .socialsLinks {
     color: blue;
-    margin-right: white;
+    margin-right: #FFF5EA;
 }
+
 
 
 section{
@@ -97,6 +115,9 @@ p {
     width: 75%;
     margin: auto;
 }
+
+
+/* standardized tables */
 table {
     background-color: lightgrey;
     border: 1px solid #04AA6D;
@@ -118,13 +139,16 @@ th {
 td {
     border: 1px solid rgb(100, 100, 100);
 }
+
+
 main {
     padding-bottom: 1.5in;
+    padding-top: 4rem;
 }
 footer {
-    background-color: black;
+    background-color: #402E32;
     color: white;
-    height:4in;
+    height:2in;
     padding-top: 50px;
     border-top: 5px;
     border-color: white;
