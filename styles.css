@@ -1,5 +1,5 @@
 body {
-    background-color: #FFF5EA;
+    background-color: white;
     align-content: center;
     margin:0;
     text-align: center;
@@ -11,7 +11,8 @@ body {
 header {
     height: 4rem;
     width: 100%;
-    background-color: #402E32;
+    /* background-color: black; */
+    background-image: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0));
     
     /* align items centrally */
     display: flex;
@@ -31,10 +32,15 @@ header {
     overscroll-behavior-y: none;
 }
 
+header.isScrolled {
+    
+}
+
 
 /* for the podcast logo */
 .titleBackground {
     background-color: #CC570F;
+    border-radius: 10px;
 
     text-align: center;
     font-family: Helvetica, sans-serif;
@@ -50,7 +56,7 @@ header {
     justify-content: center;
     align-items: center;
 
-    justify-self: left;
+    justify-self: flex-start;
 }
 .titleHeader {
     text-align: center;
@@ -64,8 +70,8 @@ header {
 /* wrapper for the section navigator */
 .betweenTitleNav {
     width: 50%;
-    color: #FFF5EA;
-    background-color: #402E32;
+    color: white;
+    font-size: 22px;
     
     /* align self centrally */
     justify-self: center;
@@ -78,6 +84,7 @@ header {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    justify-self: flex-end;
 }
 .sectionsList li {
     display: inline;
@@ -85,15 +92,17 @@ header {
 .sectionButtons {
     padding: 14px 16px;
     transition: 0.2s;
+    border-radius: 10px;
 }
 .sectionButtons:hover {
-    background-color: #B6866E;
+    background-color: white;
+    color: black;
 }
 
 
 /* for the social media icons */
 .socialsContainer {
-    background-color: #FFF5EA;
+    /* background-color: white; */
     height: 4rem;
     width: 14rem;
     display: flex;
@@ -143,10 +152,10 @@ td {
 
 main {
     padding-bottom: 1.5in;
-    padding-top: 4rem;
+    padding-top: 5rem;
 }
 footer {
-    background-color: #402E32;
+    background-color: black;
     color: white;
     height:2in;
     padding-top: 50px;
