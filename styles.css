@@ -7,12 +7,13 @@ body {
     padding: 0;
 }
 
+/* HEADER */
 /* entire background of the header */
 header {
     height: 4rem;
     width: 100%;
-    /* background-color: black; */
-    background-image: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0));
+    background-color: black;
+    /* background-image: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0)); */
     
     /* align items centrally */
     display: flex;
@@ -36,7 +37,6 @@ header.isScrolled {
     
 }
 
-
 /* for the podcast logo */
 .titleBackground {
     background-color: #CC570F;
@@ -46,10 +46,10 @@ header.isScrolled {
     font-family: Helvetica, sans-serif;
     color: white;
 
-    width: 14rem;
+    width: 10rem;
     height: 4rem;
     
-    border: 1px solid white;
+    border: 2px solid white;
     
     /* align items centrally */
     display: flex;
@@ -63,13 +63,12 @@ header.isScrolled {
     justify-self: center;
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
-    font-style: italic;
+    /* font-style: italic; */
 }
-
 
 /* wrapper for the section navigator */
 .betweenTitleNav {
-    width: 50%;
+    width: calc(100% - 20rem);
     color: white;
     font-size: 22px;
     
@@ -92,19 +91,19 @@ header.isScrolled {
 .sectionButtons {
     padding: 14px 16px;
     transition: 0.2s;
-    border-radius: 10px;
+    border-radius: 30px;
+    border: 2px solid white;
 }
 .sectionButtons:hover {
     background-color: white;
     color: black;
 }
 
-
 /* for the social media icons */
 .socialsContainer {
     /* background-color: white; */
     height: 4rem;
-    width: 14rem;
+    width: 10rem;
     display: flex;
     justify-self: right;
     align-self: right;
@@ -113,6 +112,74 @@ header.isScrolled {
     color: blue;
     margin-right: #FFF5EA;
 }
+
+
+/* EPISODES */
+/* episodes section wrapper */
+.episodes {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+/* latest episode wrapper */
+.latestEpisode {
+    border: 2px solid black;
+    width: 80%;
+    height: 25rem;
+    border-radius: 20px;
+    justify-content: center;
+    display: flex;
+    margin-bottom: 0.5in;
+}
+/* thumbnail wrapper */
+.thumbnailSection {
+    border-right: 1px solid black;
+    height: 100%;
+    width: 40%;
+    overflow: hidden;
+    box-sizing: inherit;
+}
+.thumbnailSection img {
+    width: 100%;
+    height: 100%;
+    transition: 0.2s ease;
+    box-sizing: inherit;
+}
+.thumbnailSection:hover img{
+    transform: scale(1.2);
+}
+/* description wrapper */
+.descriptionSection {
+    border-left: 1px solid black;
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+.latestName {
+
+}
+.lastestDescription {
+
+}
+.latestAudio {
+    padding-top: 1in;
+    align-self: center;
+}
+
+/* other episodes wrapper */
+.earlierEpisodes {
+    border: 2px solid black;
+    width: 80%;
+    height:fit-content;
+    display: flex;
+}
+.episode {
+    height: 15rem;
+    width: 33.33vw;
+    border: 2px solid black;
+}
+
 
 
 
@@ -127,7 +194,7 @@ p {
 
 
 /* standardized tables */
-table {
+/* table {
     background-color: lightgrey;
     border: 1px solid #04AA6D;
     width: 50%;
@@ -147,12 +214,12 @@ th {
 
 td {
     border: 1px solid rgb(100, 100, 100);
-}
+} */
 
 
 main {
-    padding-bottom: 1.5in;
-    padding-top: 5rem;
+    padding-bottom: 0.5in;
+    padding-top: calc(5rem + 0.5in);
 }
 footer {
     background-color: black;
