@@ -1,6 +1,15 @@
 /*DEFAULTS*/
+:root {
+    /* --primary-color: #ffc422; */
+    --primary-color: white;
+    --secondary-color: #ff4e33;
+    --episodes-color: lightgray;
+    --header-text-color: white;
+    --episode-text-color: black;
+}
 body {
-    background-color: white;
+    /* background-color: white; */
+    background-color: var(--primary-color);
     align-content: center;
     margin:0;
     text-align: center;
@@ -64,7 +73,8 @@ header.isScrolled {
 
 /* for the podcast logo */
 .titleBackground {
-    background-color: #FFDB74;
+    /* background-color: #ffc422; */
+    background-color: var(--secondary-color);
     border-radius: 10px;
 
     text-align: center;
@@ -146,9 +156,13 @@ header.isScrolled {
 }
 .spotify:hover {
     color: #1DB954;
-
 }
-
+.insta:hover {
+    color: #bc2a8d;
+}
+.bandcamp:hover {
+    color: #629aa9;
+}
 
 
 
@@ -163,11 +177,14 @@ header.isScrolled {
 }
 /* latest episode wrapper */
 .latestEpisode {
-    border: 2px solid lightgray;
+    /* border: 2px solid lightgray; */
     width: 80%;
     height: 30vw;
     min-height: 15rem;
-    background-color: lightgray;
+    /* background-color: lightgray; */
+    background-color: var(--episodes-color);
+    color: var(--episode-text-color);
+
     /* border-radius: 20px; */
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -234,8 +251,9 @@ header.isScrolled {
 .episode {
     height: 20rem;
     width: 300px;
-    border: 2px solid lightgray;
-    background-color: lightgray;
+    /* border: 2px solid lightgray; */
+    /* background-color: lightgray; */
+    background-color: var(--episodes-color);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     margin: 20px;
@@ -250,7 +268,7 @@ header.isScrolled {
 }
 .imageWrapper {
     width: 95%;
-    height: 95%;
+    height: 90%;
     overflow: hidden;
 }
 .imageWrapper img {
@@ -264,7 +282,8 @@ header.isScrolled {
 .descriptionSection {
     height:40%;
     width:100%;
-    background-color: lightgray;
+    /* background-color: lightgray; */
+    background-color: var(--episodes-color);
 }
 
 
@@ -304,4 +323,20 @@ header.isScrolled {
 
     background-color: darkgray;
     width: 47.5%;
+}
+
+
+
+/* //////////////////////////////////// SCHEDULE /////////////////////////////////// */
+.scheduleWrapper {
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.schedule {
+    width: 80%;
+    height: 60vw;
+    min-height: 15rem;
+    background-color: lightgray;
 }
