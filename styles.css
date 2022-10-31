@@ -74,18 +74,18 @@ header.isScrolled {
 /* for the podcast logo */
 .titleBackground {
     /* background-color: #ffc422; */
-    background-color: var(--secondary-color);
+    /* background-color: var(--secondary-color); */
     border-radius: 10px;
 
     text-align: center;
     font-family: Helvetica, sans-serif;
-    color: black;
+    color: var(--secondary-color);
     text-decoration: none;
 
     width: 10rem;
     height: 4rem;
     
-    border: 2px solid black;
+    /* border: 2px solid black; */
     
     /* align items centrally */
     display: flex;
@@ -105,7 +105,8 @@ header.isScrolled {
 /* wrapper for the section navigator */
 .betweenTitleNav {
     width: calc(100% - 21rem);
-    color: white;
+    /* color: white; */
+    color: var(--header-text-color);
     font-size: 18px;
     
     /* align self centrally */
@@ -129,11 +130,11 @@ header.isScrolled {
     transition: 0.2s;
     border-radius: 10px;
     /* border: 2px solid white;  */
-    color:white;
+    color:var(--header-text-color);
     text-decoration: none;
 }
 .sectionButtons:hover {
-    background-color: white;
+    background-color: var(--header-text-color);
     color: black;
 }
 
@@ -168,7 +169,7 @@ header.isScrolled {
 
 
 
-/* /////////////////////////////////// EPISODES /////////////////////////////////// */
+/* /////////////////////////////////// HOME PAGE /////////////////////////////////// */
 /* episodes section wrapper */
 .episodes {
     display: flex;
@@ -194,7 +195,7 @@ header.isScrolled {
 }
 /* thumbnail wrapper */
 .latestThumbnailSection {
-    border-right: 1px solid black;
+    /* border-right: 1px solid black; */
     height: 100%;
     width: 45%;
     overflow: hidden;
@@ -219,7 +220,7 @@ header.isScrolled {
 }
 /* description wrapper */
 .latestDescriptionSection {
-    border-left: 1px solid black;
+    /* border-left: 1px solid black; */
     height: 100%;
     width: 55%;
     display: flex;
@@ -240,19 +241,15 @@ header.isScrolled {
 
 /* other episodes wrapper */
 .earlierEpisodes {
-    /* border: 2px solid black; */
     width: 80%;
     height:fit-content;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: center;
+    overflow: auto;
+    white-space: nowrap;
 }
 .episode {
     height: 20rem;
     width: 300px;
-    /* border: 2px solid lightgray; */
-    /* background-color: lightgray; */
+    display: inline-block;
     background-color: var(--episodes-color);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -261,7 +258,6 @@ header.isScrolled {
 .thumbnailSection {
     height:60%;
     width:100%;
-    border-bottom: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -339,4 +335,25 @@ header.isScrolled {
     height: 60vw;
     min-height: 15rem;
     background-color: lightgray;
+}
+
+
+
+/* ///////////////////////////// SINGLE EPISODE PAGE //////////////////////////////////// */
+.episodeMain {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.commentsHeader {
+    justify-self: left;
+}
+
+
+
+/* /////////////////////////// ALL EPISODES PAGE /////////////////////////////////*/
+.allEpisodes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
