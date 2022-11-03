@@ -1,18 +1,21 @@
 /*DEFAULTS*/
 :root {
     --primary-color: #bdd5f3;
+    --background-gradient: linear-gradient(to bottom, #bdd5f3, #d2bffa, #ff9fd9, #ff858e, #ff8d2a);
     /* --primary-color: #e2e8f0; */
     /* --primary-color: #406188; */
     --secondary-color: white;
-    --episodes-color: rgb(248, 111, 32);
-    --header-backgroud-color: rgb(248, 111, 32);
+    /* --episodes-color: rgb(248, 111, 32); */
+    --episodes-color: black;
+    --header-backgroud-color: black;
     --header-text-color: white;
     --episode-text-color: white;
-    --footer-color: rgb(248, 111, 32);
+    --footer-color: black;
 }
 body {
     /* background-color: white; */
-    background-color: var(--primary-color);
+    /* background-color: var(--primary-color); */
+    background-image: var(--background-gradient);
     align-content: center;
     margin:0;
     text-align: center;
@@ -86,7 +89,7 @@ header.isScrolled {
     color: var(--secondary-color);
     text-decoration: none;
 
-    width: 10rem;
+    width: 20rem;
     height: 4rem;
     
     /* border: 2px solid black; */
@@ -103,7 +106,11 @@ header.isScrolled {
     justify-self: center;
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
+    padding-left: 1rem;
     /* font-style: italic; */
+}
+.logo {
+    height:100%;
 }
 
 /* wrapper for the section navigator */
@@ -188,6 +195,7 @@ header.isScrolled {
     min-height: 15rem;
     background-color: var(--episodes-color);
     color: var(--episode-text-color);
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
 
     /* border-radius: 20px; */
     border-top-right-radius: 20px;
@@ -255,6 +263,7 @@ header.isScrolled {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     margin: 20px;
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
 }
 .thumbnailSection {
     height:60%;
@@ -280,6 +289,8 @@ header.isScrolled {
     height:40%;
     width:100%;
     background-color: var(--episodes-color);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 
@@ -298,7 +309,7 @@ header.isScrolled {
     width: 80%;
     height: 30vw;
     min-height: 15rem;
-    background-color: lightgray;
+    /* background-color: lightgray; */
 }
 
 .aboutCreators {
@@ -312,12 +323,12 @@ header.isScrolled {
     height: 100%;
     width: 47.5%;
     margin-right: 5%;
-    background-color: darkgray;
+    /* background-color: darkgray; */
 }
 .aboutCate {
     height: 100%;
 
-    background-color: darkgray;
+    /* background-color: darkgray; */
     width: 47.5%;
 }
 
