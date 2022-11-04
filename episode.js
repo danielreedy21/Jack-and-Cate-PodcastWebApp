@@ -7,7 +7,7 @@ const main = document.getElementById("main");
 
 const imgSrc = "images/Forest_in_Japan.jpeg";
 
-// create thumbnail
+// create thumbnail as one of the main things
 const imageWrapper = document.getElementById('imgWrap');
 const thumbnail = document.createElement('img');
 thumbnail.alt="Forest Image";
