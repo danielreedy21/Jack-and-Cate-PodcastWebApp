@@ -254,6 +254,8 @@ header.isScrolled {
     height:fit-content;
     overflow: auto;
     white-space: nowrap;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
 }
 .episode {
     height: 20rem;
