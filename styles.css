@@ -228,6 +228,17 @@ header.isScrolled {
 .latestImageWrapper:hover img{
     transform: scale(1.025);
 }
+.loadingBackground {
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    background-color: #f6f7f8;
+    background: linear-gradient(to right, #eeeeee 8%, #bbbbbb 18%, #eeeeee 33%);
+    background-size: 800px 104px;
+    height: 70px;
+    position: relative;
+}
 /* description wrapper */
 .latestDescriptionSection {
     height: 100%;
@@ -237,7 +248,13 @@ header.isScrolled {
 }
 .latestName {
     font-size: xx-large;
-    justify-content: left;
+    text-decoration: none;
+    color: white;
+    padding-top: 5%;
+}
+.latestName:hover {
+    text-decoration: underline;
+
 }
 .lastestDescription {
 
@@ -311,7 +328,21 @@ header.isScrolled {
     width: 80%;
     height: 30vw;
     min-height: 15rem;
-    /* background-color: lightgray; */
+    display: flex;
+}
+.aboutUsImgWrap {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+}
+.aboutUsImgWrap img {
+    width: 120%;
+    height: 100%;
+}
+.aboutUsTextWrap {
+    width: 50%;
+    height: 100%;
 }
 
 .aboutCreators {
@@ -369,4 +400,10 @@ header.isScrolled {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+
+/* /////////////////////////// CUSTOM AUDIO PLAYER //////////////////////////////*/
+.audioPlayer {
+    
 }

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles.css">
 
     <!-- fonts -->
+    <link rel="icon" href="images/Logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Merriweather&family=Montserrat:wght@200;400&family=Raleway:ital,wght@0,400;1,700&family=Roboto&display=swap" rel="stylesheet">
@@ -15,33 +16,7 @@
     <script src="https://kit.fontawesome.com/4e26673c7f.js" crossorigin="anonymous"></script>
 
     <title>Finest Fives Podcast</title>
-    <!-- <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-analytics.js";
-        import { getAuth } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js';
-        import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js';
-        import { getStorage } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-storage.js';
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-          apiKey: "AIzaSyCdLRTmqMHCgQ53C436xz0JLpLEA2S_gKk",
-          authDomain: "finest-five-podcast.firebaseapp.com",
-          projectId: "finest-five-podcast",
-          storageBucket: "finest-five-podcast.appspot.com",
-          messagingSenderId: "781980552264",
-          appId: "1:781980552264:web:01a4c911a4148eb2f25c7d",
-          measurementId: "G-DVFPMGBT2X"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-      </script> -->
-      <script src="index.js" defer type="module"></script>
+    <script src="index.js" defer type="module"></script>
 </head>
 
 
@@ -60,13 +35,13 @@
             </ul>
         </nav>
         <nav class="socialsContainer">
-            <a href="https://spotify.com" class="socialsLinks spotify" target="_blank" rel="noopener noreferrer">
+            <a href="https://open.spotify.com/show/6OrghbtPFnCj1KWU4BWSp1?si=5e86a1b37b8f4d48" class="socialsLinks spotify" target="_blank" rel="noopener noreferrer">
                 <i class="fa-brands fa-spotify icon-large" ></i>
             </a>
-            <a href="https://instagram.com" class="socialsLinks insta" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/finestfivespodcast/" class="socialsLinks insta" target="_blank" rel="noopener noreferrer">
                 <i class="fa-brands fa-instagram"></i>
             </a>
-            <a href="https://bandcamp.com/" class="socialsLinks bandcamp" target="_blank" rel="noopener noreferrer">
+            <a href="https://thefinestfives.bandcamp.com/" class="socialsLinks bandcamp" target="_blank" rel="noopener noreferrer">
                 <i class="fa-brands fa-bandcamp"></i>
             </a>
         </nav>
@@ -81,9 +56,9 @@
                     </a>
                 </div>
                 <div class="latestDescriptionSection">
-                    <h1 class="latestName">Episode Name</h1>
+                    <a class="latestName" href="episode.html">Episode Name</a>
                     <p class="latestDescription">Episode description .... asdfasdf ..... asdf sdf .....</p>
-                    <audio controls src="audio/Waterfall Sounds.m4a" class="latestAudio"></audio>
+                    <audio controls src="audio/Waterfall Sounds.m4a" class="latestAudio" id="latestAudio"></audio>
                 </div>
             </div>
             <h4>RECENT EPISODES:</h4>
