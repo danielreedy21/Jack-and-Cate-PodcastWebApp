@@ -4,7 +4,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-analytics.js";
 import { getAuth } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js';
-import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js';
+import { getFirestore, collection, getDocs, query, where, orderBy, limit } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js';
 import { getStorage, ref, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-storage.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -33,36 +33,49 @@ const db = getFirestore(app);
 
 
 // TODO: grab the title and description information for the latest episode and add it to the DOM
-const querySnapshot = await getDocs(collection(db, "EpisodesData"));
+// const querySnapshot = await getDocs(collection(db, "EpisodesData"));
+// querySnapshot.forEach((doc) => {
+// 	const id = doc.id;
+// 	const data = JSON.stringify(doc.data(), undefined, 2);
+// 	console.log(id + ' => ' + data);
+// });
+
+
+// grab the data for the latest episode
+let latestTitle;
+let latestDescription;
+let latestAudioID;
+let latestThumbnailID;
+const episodeData = collection(db, "EpisodesData");
+const latestQuery = query(episodeData, orderBy("Date", "desc"), limit(1));
+const querySnapshot = await getDocs(latestQuery);
 querySnapshot.forEach((doc) => {
-	const id = doc.id;
-	const data = JSON.stringify(doc.data(), undefined, 2);
-	console.log(id + ' => ' + data);
+  console.log(doc.id, " => ", JSON.stringify(doc.data(), undefined, 2));
+  latestTitle = doc.data().Title;
+  latestDescription = doc.data().Description;
+  latestAudioID = doc.data().audioID;
+  latestThumbnailID = doc.data().thumbnailID;
 });
-
-
-
+// use this data to update the DOM
+document.getElementById("latestName").innerHTML = latestTitle;
+document.getElementById("latestDescription").innerHTML = latestDescription;
 
 // Get the download URL and add it to the thumbnail src attribute
-const thumbRef = ref(storage, 'thumbnails/Episode Thumbnails/concert_thumb.jpeg');
+const latestThumbnailPath = 'thumbnails/Episode Thumbnails/' + latestThumbnailID;
+const thumbRef = ref(storage, latestThumbnailPath);
 getDownloadURL(thumbRef)
-    .then((url) => {
-        const latestThumb = document.getElementById('latestThumb');
-        latestThumb.src = url;
-    });
+  .then((url) => {
+    const latestThumb = document.getElementById('latestThumb');
+    latestThumb.src = url;
+  });
 
 // grab the audio from firebase and add it to the DOM
-const latestAudioRef = ref(storage, 'audio/ConcertPodcast.mp3');
+const latestAudioPath = 'audio/' + latestAudioID;
+const latestAudioRef = ref(storage, latestAudioPath);
 getDownloadURL(latestAudioRef)
-	.then((url) => {
-		const latestAudio = document.getElementById('latestAudio');
-		latestAudio.src = url;
-	});
-
-
-
-
-// TODO: grab the LATEST EPISODES section thumbnails and titles and add them to the DOM
-
+  .then((url) => {
+    const latestAudio = document.getElementById('latestAudio');
+    latestAudio.src = url;
+  });
 
 

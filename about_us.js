@@ -18,10 +18,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
 
+
+// grab ad audio from firebase and add it to DOM
 const audioRef = ref(storage, 'audio');
 const smallAdRef = ref(storage, 'audio/30secondAd.mp3');
 getDownloadURL(smallAdRef)
-	.then((url) => {
-		const smallAdAudio = document.getElementById('30secAd');
-		smallAdAudio.setAttribute('src',url);
-	});
+  .then((url) => {
+    const smallAdAudio = document.getElementById('30secAd');
+    smallAdAudio.setAttribute('src', url);
+  });
+
+
