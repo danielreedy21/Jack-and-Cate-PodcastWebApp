@@ -1,7 +1,9 @@
 /*DEFAULTS*/
 :root {
     --primary-color: #bdd5f3;
-    --background-gradient: linear-gradient(to bottom, #bdd5f3, #d2bffa, #ff9fd9, #ff858e, #ff8d2a);
+    /* --background-gradient: linear-gradient(to bottom, #bdd5f3, #d2bffa, #ff9fd9, #ff858e, #ff8d2a); */
+    /* background-image: linear-gradient(to bottom, #bdd5f3, #98b8e4, #749cd5, #5080c6, #2565b6); */
+    background-image: linear-gradient(to bottom, #bdd5f3, #92add3, #6987b3, #416294, #133f76);
     /* --primary-color: #e2e8f0; */
     /* --primary-color: #406188; */
     --secondary-color: white;

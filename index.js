@@ -22,8 +22,6 @@ const firebaseConfig = {
 };
 
 
-
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
@@ -31,17 +29,8 @@ const storage = getStorage(app);
 const db = getFirestore(app);
 
 
-
-// TODO: grab the title and description information for the latest episode and add it to the DOM
-// const querySnapshot = await getDocs(collection(db, "EpisodesData"));
-// querySnapshot.forEach((doc) => {
-// 	const id = doc.id;
-// 	const data = JSON.stringify(doc.data(), undefined, 2);
-// 	console.log(id + ' => ' + data);
-// });
-
-
 // grab the data for the latest episode
+let latestID;
 let latestTitle;
 let latestDescription;
 let latestAudioID;
@@ -50,17 +39,19 @@ const episodeData = collection(db, "EpisodesData");
 const latestQuery = query(episodeData, orderBy("Date", "desc"), limit(1));
 const querySnapshot = await getDocs(latestQuery);
 querySnapshot.forEach((doc) => {
-  console.log(doc.id, " => ", JSON.stringify(doc.data(), undefined, 2));
+  latestID = doc.id;
+  console.log(latestID, " => ", JSON.stringify(doc.data(), undefined, 2));
   latestTitle = doc.data().Title;
   latestDescription = doc.data().Description;
   latestAudioID = doc.data().audioID;
   latestThumbnailID = doc.data().thumbnailID;
 });
+
 // use this data to update the DOM
 document.getElementById("latestName").innerHTML = latestTitle;
 document.getElementById("latestDescription").innerHTML = latestDescription;
 
-// Get the download URL and add it to the thumbnail src attribute
+// grab the latest episode thumbnail from firebase and add it to the DOM
 const latestThumbnailPath = 'thumbnails/Episode Thumbnails/' + latestThumbnailID;
 const thumbRef = ref(storage, latestThumbnailPath);
 getDownloadURL(thumbRef)
@@ -69,11 +60,12 @@ getDownloadURL(thumbRef)
     latestThumb.src = url;
   });
 
-// grab the audio from firebase and add it to the DOM
+// grab the latest episode audio from firebase and add it to the DOM
 const latestAudioPath = 'audio/' + latestAudioID;
 const latestAudioRef = ref(storage, latestAudioPath);
 getDownloadURL(latestAudioRef)
   .then((url) => {
+    console.log(url)
     const latestAudio = document.getElementById('latestAudio');
     latestAudio.src = url;
   });
