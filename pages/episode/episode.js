@@ -21,18 +21,25 @@ const app = initializeApp(firebaseConfig)
 const storage = getStorage(app);
 const db = getFirestore(app);
 
+// grab episode ID from url parameters
+const windowLocation = window.location.search;
+const urlParams = new URLSearchParams(windowLocation);
+const episodeID = urlParams.get('id');
+console.log(episodeID)
+
+
 // grab episode ID based on the doc ID
 let title;
 let description;
 let audioID;
 let thumbnailID;
-const episodeRef = doc(db, "EpisodesData", "XEx53XC7hVE8zrcMRTqD")
+const episodeRef = doc(db, "EpisodesData", episodeID)
 const episodeSnapshot = await getDoc(episodeRef)
 //verify data in console
 if (episodeSnapshot.exists()) {
   console.log("Episode exists in Firebase")
 }
-console.log("XEx53XC7hVE8zrcMRTqD", " => ", JSON.stringify(episodeSnapshot.data(), undefined, 2));
+console.log(episodeID, " => ", JSON.stringify(episodeSnapshot.data(), undefined, 2));
 
 //pass data from snapshot into variables
 const snapshotJSON = episodeSnapshot.data();

@@ -26,8 +26,8 @@ body {
 }
 main {
     padding-bottom: 0.5in;
-    padding-top: calc(5rem + 1in);
-    min-height: calc(100vh - calc(5rem + 0.5in)); 
+    padding-top: calc(5rem + 0.5in);
+    min-height: calc(100vh - calc(5rem + 1in)); 
 }
 footer {
     background-color: var(--footer-color);
@@ -274,8 +274,8 @@ header.isScrolled {
     height:fit-content;
     overflow: auto;
     white-space: nowrap;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
+    /* border-left: 2px solid black; */
+    /* border-right: 2px solid black; */
 }
 .episode {
     height: 20rem;
@@ -334,7 +334,7 @@ header.isScrolled {
 
 .aboutPodcast {
     width: 80%;
-    height: 30vw;
+    /* height: 30vw; */
     min-height: 15rem;
     display: flex;
 }

@@ -2,7 +2,6 @@
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-analytics.js";
 import { getAuth } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js';
 import { getFirestore, collection, getDocs, query, where, orderBy, limit } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js';
 import { getStorage, ref, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-storage.js';
@@ -23,7 +22,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const storage = getStorage(app);
 const db = getFirestore(app);
 
@@ -34,14 +32,18 @@ const querySnapshot = await getDocs(latestQuery);
 
 // Create a new episode card for each of the episodes
 querySnapshot.forEach((doc) => {
-  const latestID = doc.id;
-  console.log(latestID, " => ", JSON.stringify(doc.data(), undefined, 2));
-  const latestTitle = doc.data().Title;
-  const latestDescription = doc.data().Description;
-  const latestAudioID = doc.data().audioID;
-  const latestThumbnailID = doc.data().thumbnailID;
+  const episodeID = doc.id;
+  console.log(episodeID, " => ", JSON.stringify(doc.data(), undefined, 2));
+  const title = doc.data().Title;
+  const description = doc.data().Description;
+  const audioID = doc.data().audioID;
+  const thumbnailID = doc.data().thumbnailID;
 
-  // ADDING IT TO THE DOM
+  // creating path to this episode's page
+  let episodePagePath = "../episode/episode.html?id=" + episodeID;
+  console.log(episodePagePath)
+
+  // ADDING EPISODE TO THE DOM
   // grab episodes section
   const episodesSection = document.getElementById("allEpisodes")
 
@@ -51,11 +53,12 @@ querySnapshot.forEach((doc) => {
 
   // create elements for thumbnail of card
   const thumbnailSection = document.createElement('div');
-  const imageWrapper = document.createElement('div');
+  const imageWrapper = document.createElement('a');
   const image = document.createElement('img');
   thumbnailSection.classList.add('thumbnailSection');
   imageWrapper.classList.add('imageWrapper');
-  image.src = '../../images/concert_thumb.jpeg'; //TODO: update the source with the url from storage
+  // imageWrapper.onclick = "clickLink(" + episodePagePath + ");";
+  imageWrapper.href = episodePagePath;
 
   imageWrapper.appendChild(image);
   thumbnailSection.appendChild(imageWrapper);
@@ -63,17 +66,29 @@ querySnapshot.forEach((doc) => {
 
   // create elements for description/title of card
   const descriptionSection = document.createElement('div');
-  const titleText = document.createTextNode(latestTitle);
-  const title = document.createElement('h4');
+  const titleText = document.createTextNode(title);
+  const titleElement = document.createElement('h4');
   descriptionSection.classList.add('descriptionSection');
 
-  title.appendChild(titleText);
-  descriptionSection.appendChild(title);
+  titleElement.appendChild(titleText);
+  descriptionSection.appendChild(titleElement);
   episodeCard.appendChild(descriptionSection);
 
   // append episode card to the episodes section
   episodesSection.appendChild(episodeCard);
+
+
+  // update the card with the correct thumbnail
+  const thumbnailPath = 'thumbnails/Episode Thumbnails/' + thumbnailID;
+  const thumbRef = ref(storage, thumbnailPath);
+  getDownloadURL(thumbRef)
+    .then((url) => {
+      image.src = url;
+    });
 });
+
+
+
 
 
 
