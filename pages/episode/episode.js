@@ -62,12 +62,99 @@ getDownloadURL(thumbRef)
 
 // create title
 const titleNode = document.createTextNode(title);
-const descriptionSection = document.getElementById('description');
-const episodeName = document.createElement('h1');
-episodeName.appendChild(titleNode);
-episodeName.classList.add("latestName");
-descriptionSection.appendChild(episodeName);
+const titleSection = document.getElementById('title');
+titleSection.appendChild(titleNode);
 
 // TODO: create description
+const descriptionNode = document.createTextNode(description);
+const descriptionSection = document.getElementById('description');
+descriptionSection.appendChild(descriptionNode);
 
+// grab audioURL from firebase
+const audioPath = 'audio/' + audioID;
+const audioRef = ref(storage, audioPath);
+getDownloadURL(audioRef)
+  .then((url) => {
+    // create howlerjs sound
+    let audio = new Howl({
+      src: [url],
+      format: ['mp3'],
+      volume: 1.0
+    });
+
+    // AUDIO PLAYER FUNCTIONS
+    // play button
+    const playButton = document.getElementById('playButton');
+    playButton.addEventListener("click", () => {
+      console.log("play button clicked");
+      if (playButton.classList.contains("fa-play")) {
+        playButton.classList.remove("fa-play");
+        playButton.classList.add("fa-pause");
+        audio.play();
+      } else if (playButton.classList.contains("fa-pause")) {
+        playButton.classList.remove("fa-pause");
+        playButton.classList.add("fa-play");
+        audio.pause();
+      }
+    });
+
+    // mute button
+    const muteButton = document.getElementById('muteButton');
+    muteButton.addEventListener("click", () => {
+      console.log("mute button clicked");
+      if (muteButton.classList.contains("fa-volume-high")) {
+        muteButton.classList.remove("fa-volume-high");
+        muteButton.classList.add("fa-volume-off");
+        audio.volume(0.0);
+      } else if (muteButton.classList.contains("fa-volume-off")) {
+        muteButton.classList.remove("fa-volume-off");
+        muteButton.classList.add("fa-volume-high");
+        audio.volume(1.0);
+      }
+    });
+
+    // forward button
+    const forwardButton = document.getElementById('forwardButton');
+    forwardButton.addEventListener("click", () => {
+      console.log("forward button clicked");
+      const currentSeek = audio.seek();
+      const forwardTo = currentSeek + 15;
+      if (forwardTo > audio.duration()) {
+        audio.seek(audio.duration());
+      } else {
+        audio.seek(forwardTo);
+      }
+    });
+
+    // back button
+    const backButton = document.getElementById('backButton');
+    backButton.addEventListener("click", () => {
+      console.log("back button clicked");
+      const currentSeek = audio.seek();
+      const backTo = currentSeek - 15;
+      if (backTo < 0) {
+        audio.seek(0);
+      } else {
+        audio.seek(backTo);
+      }
+    });
+
+    //update the bar width based on duration left
+    const progressBar = document.getElementById('played');
+    const remainingBar = document.getElementById('remaining');
+    setInterval(() => {
+      updateWidth();
+    }, 300);
+
+    function updateWidth() {
+      if (audio.playing()) {
+        let width = (audio.seek() / audio.duration()) * 100;
+        let progressWidth = Math.round(width * 100) / 100;
+        let remainingWidth = Math.round((100.0 - width) * 100) / 100;
+        console.log(progressWidth, remainingWidth);
+        progressBar.style.width = progressWidth + "%";
+        remainingBar.style.width = remainingWidth + "%";
+      }
+    }
+  });
 

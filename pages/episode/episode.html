@@ -14,6 +14,7 @@
         rel="stylesheet">
     <!-- icons -->
     <script src="https://kit.fontawesome.com/4e26673c7f.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js"></script>
     <script defer type=module src="episode.js"></script>
 
     <title>Finest Fives Podcast</title>
@@ -54,12 +55,31 @@
             <div class="latestThumbnailSection">
                 <div class="latestImageWrapper" id="imgWrap"></div>
             </div>
-            <div class="latestDescriptionSection" id="description"></div>
+            <div class="latestDescriptionSection">
+                <div class="latestName" id="title"></div>
+                <p class="latestDescription" id="description"></p>
+                <div class="latestAudio"></div>
+                <!-- <div class="playButton" onclick="playOrPause()"> -->
+                <!---->
+                <!-- </div> -->
+            </div>
         </section>
         <section class="commentsSection">
             <h2 class="commentsHeader">Comments: Coming Soon!</h2>
             <div class="commentsWrapper" id="comments"></div>
         </section>
+        <div class="audioPlayer">
+            <div class="audioControls">
+                <i id="backButton" class="audioButtons fa-solid fa-rotate-left"></i>
+                <i id="playButton" class="audioButtons fa-solid fa-play"></i>
+                <i id="forwardButton" class="audioButtons fa-solid fa-rotate-right"></i>
+                <i id="muteButton" class="audioButtons fa-solid fa-volume-high"></i>
+            </div>
+            <div class="audioDisplay">
+                <div class="played" id="played"></div>
+                <div class="remaining" id="remaining"></div>
+            </div>
+        </div>
     </main>
     <footer>
 

@@ -278,8 +278,8 @@ header.isScrolled {
     /* border-right: 2px solid black; */
 }
 .episode {
-    height: 20rem;
-    width: 300px;
+    height: 18rem;
+    width: 18rem;
     display: inline-block;
     background-color: var(--episodes-color);
     border-bottom-left-radius: 10px;
@@ -288,7 +288,7 @@ header.isScrolled {
     box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
 }
 .thumbnailSection {
-    height:60%;
+    height:80%;
     width:100%;
     display: flex;
     align-items: center;
@@ -308,14 +308,17 @@ header.isScrolled {
     transform: scale(1.05);
 }
 .descriptionSection {
-    height:40%;
+    height:20%;
     width:100%;
     background-color: var(--episodes-color);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     color: white;
+    display: flex;
+    justify-content: center;
 }
 .descriptionSection h4 {
+    align-self: center;
     margin-block-start: 0px;
     margin-block-end: 0px;
 }
@@ -415,5 +418,55 @@ header.isScrolled {
 
 /* /////////////////////////// CUSTOM AUDIO PLAYER //////////////////////////////*/
 .audioPlayer {
-    
+    position:fixed;
+    left:0;
+    bottom:0;
+    width:100%;
+    background-color: black;
+    color:white;
+    height:8rem;
+    border-top: 1px solid white;
+    display:flex;
+    flex-direction:column;
+}
+.audioControls {
+    height:60%;
+    width: 100%;
+    background-color:black;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+}
+.audioButtons{
+    font-size: xx-large;
+    margin-left:1rem;
+    margin-right:1rem;
+}
+.audioButtons:active {
+    color:lightgray;
+}
+.audioDisplay {
+    height:40%;
+    /* background-color: green; */
+    width:100%;
+    display:flex;
+}
+.played {
+    height:100%;
+    width:0%;
+    background-color:#133f76;
+}
+.remaining {
+    height:100%;
+    width:100%;
+    background-color:#bdd5f3;
+}
+
+.playButton {
+   height:2rem; 
+   width: 2rem;
+}
+.muteButton {
+   height:2rem; 
+   width: 2rem;
 }
