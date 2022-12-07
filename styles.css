@@ -195,10 +195,12 @@ header.isScrolled {
     /* border: 2px solid lightgray; */
     width: 80%;
     height: 30vw;
-    min-height: 15rem;
+    min-height: max-content;
+    /* min-height: 15rem; */
     background-color: var(--episodes-color);
     color: var(--episode-text-color);
     box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+    overflow: scroll;
 
     /* border-radius: 20px; */
     border-top-right-radius: 20px;
@@ -254,13 +256,14 @@ header.isScrolled {
     text-decoration: none;
     color: white;
     padding-top: 5%;
+    padding-bottom:5%;
 }
 .latestName:hover {
     text-decoration: underline;
 
 }
 .lastestDescription {
-
+    margin-top: 1rem;
 }
 .latestAudio {
     padding-top: 1in;
@@ -319,6 +322,8 @@ header.isScrolled {
 }
 .descriptionSection h4 {
     align-self: center;
+    width:100%;
+    overflow:scroll;
     margin-block-start: 0px;
     margin-block-end: 0px;
 }
@@ -337,6 +342,10 @@ header.isScrolled {
 
 .aboutPodcast {
     width: 80%;
+    background-color: var(--episodes-color);
+    color: white;
+    border-radius: 15px;
+    overflow: hidden;
     /* height: 30vw; */
     min-height: 15rem;
     display: flex;
@@ -345,7 +354,10 @@ header.isScrolled {
     width: 50%;
     height: 100%;
     overflow: hidden;
+    border-radius: 15px;
     display: flex;
+    align-self: center;
+    margin: 2%;
 }
 .aboutUsImgWrap img {
     width: 120%;
@@ -359,7 +371,7 @@ header.isScrolled {
 .aboutCreators {
     margin-top: 3rem;
     width: 80%;
-    height: 40vw;
+    height: 20vw;
     min-height: 15rem;
     display: flex;
 }
@@ -367,6 +379,9 @@ header.isScrolled {
     height: 100%;
     width: 47.5%;
     margin-right: 5%;
+    border-radius: 15px;
+    background-color: var(--episodes-color);
+    color:white;
     /* background-color: darkgray; */
 }
 .aboutCate {
@@ -374,6 +389,9 @@ header.isScrolled {
 
     /* background-color: darkgray; */
     width: 47.5%;
+    border-radius: 15px;
+    background-color: var(--episodes-color);
+    color:white;
 }
 
 
@@ -390,8 +408,8 @@ header.isScrolled {
     height: 60vw;
     min-height: 15rem;
 }
-.schedule h1 {
-    
+.scheduleInfo {
+    margin-bottom: 10rem;
 }
 
 
@@ -406,6 +424,13 @@ header.isScrolled {
     align-self: left;
 }
 
+.episodeQuote {
+    width:80%;
+}
+
+.guests {
+    margin: 1rem;
+}
 
 
 /* /////////////////////////// ALL EPISODES PAGE /////////////////////////////////*/
@@ -443,6 +468,9 @@ header.isScrolled {
     margin-right:1rem;
 }
 .audioButtons:active {
+    color:darkgray;
+}
+.audioButtons:hover {
     color:lightgray;
 }
 .audioDisplay {

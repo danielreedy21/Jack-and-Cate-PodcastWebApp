@@ -127,7 +127,6 @@ recentQuerySnapshot.forEach((doc) => {
     // append episode card to the episodes section
     recentSection.appendChild(episodeCard);
 
-
     // update the card with the correct thumbnail
     const thumbnailPath = 'thumbnails/Episode Thumbnails/' + thumbnailID;
     const thumbRef = ref(storage, thumbnailPath);

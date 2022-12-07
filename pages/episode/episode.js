@@ -31,6 +31,8 @@ console.log(episodeID)
 // grab episode ID based on the doc ID
 let title;
 let description;
+let quote;
+let guests;
 let audioID;
 let thumbnailID;
 const episodeRef = doc(db, "EpisodesData", episodeID)
@@ -45,6 +47,8 @@ console.log(episodeID, " => ", JSON.stringify(episodeSnapshot.data(), undefined,
 const snapshotJSON = episodeSnapshot.data();
 title = snapshotJSON.Title;
 description = snapshotJSON.Description;
+quote = snapshotJSON.Quote;
+guests = snapshotJSON.Guests;
 audioID = snapshotJSON.audioID;
 thumbnailID = snapshotJSON.thumbnailID;
 
@@ -65,10 +69,20 @@ const titleNode = document.createTextNode(title);
 const titleSection = document.getElementById('title');
 titleSection.appendChild(titleNode);
 
-// TODO: create description
+// create description
 const descriptionNode = document.createTextNode(description);
 const descriptionSection = document.getElementById('description');
 descriptionSection.appendChild(descriptionNode);
+
+// create quotation
+const quoteNode = document.createTextNode(quote);
+const quoteSection = document.getElementById('episodeQuote');
+quoteSection.appendChild(quoteNode);
+
+// create guest list
+const guestNode = document.createTextNode(guests);
+const guestSection = document.getElementById('guests');
+guestSection.appendChild(guestNode);
 
 // grab audioURL from firebase
 const audioPath = 'audio/' + audioID;
@@ -121,8 +135,10 @@ getDownloadURL(audioRef)
       const forwardTo = currentSeek + 15;
       if (forwardTo > audio.duration()) {
         audio.seek(audio.duration());
+        updateWidth();
       } else {
         audio.seek(forwardTo);
+        updateWidth();
       }
     });
 
@@ -134,8 +150,10 @@ getDownloadURL(audioRef)
       const backTo = currentSeek - 15;
       if (backTo < 0) {
         audio.seek(0);
+        updateWidth();
       } else {
         audio.seek(backTo);
+        updateWidth();
       }
     });
 
@@ -147,14 +165,14 @@ getDownloadURL(audioRef)
     }, 300);
 
     function updateWidth() {
-      if (audio.playing()) {
-        let width = (audio.seek() / audio.duration()) * 100;
-        let progressWidth = Math.round(width * 100) / 100;
-        let remainingWidth = Math.round((100.0 - width) * 100) / 100;
-        console.log(progressWidth, remainingWidth);
-        progressBar.style.width = progressWidth + "%";
-        remainingBar.style.width = remainingWidth + "%";
-      }
+      // if (audio.playing()) {
+      let width = (audio.seek() / audio.duration()) * 100;
+      let progressWidth = Math.round(width * 100) / 100;
+      let remainingWidth = Math.round((100.0 - width) * 100) / 100;
+      // console.log(progressWidth, remainingWidth);
+      progressBar.style.width = progressWidth + "%";
+      remainingBar.style.width = remainingWidth + "%";
+      // }
     }
   });
 
