@@ -162,10 +162,52 @@ getDownloadURL(audioRef)
     const remainingBar = document.getElementById('remaining');
     setInterval(() => {
       updateWidth();
-    }, 300);
+    }, 333);
 
     function updateWidth() {
       // if (audio.playing()) {
+      //update the timer with the correct times
+      let secondsElapsed = audio.seek();
+      let secondsTotal = audio.duration();
+      // console.log(secondsElapsed, secondsTotal);
+
+      // update the elapsed time
+      let secondsElapsedInt = Math.round(secondsElapsed);
+      let hoursElapsed = Math.floor(secondsElapsedInt / 3600);
+      secondsElapsedInt %= 3600;
+      let minutesElapsed = Math.floor(secondsElapsedInt / 60);
+      secondsElapsed = secondsElapsedInt % 60;
+
+      minutesElapsed = String(minutesElapsed).padStart(2, "0");
+      hoursElapsed = String(hoursElapsed).padStart(2, "0");
+      secondsElapsed = String(secondsElapsed).padStart(2, "0");
+      let elapsedString = hoursElapsed + ":" + minutesElapsed + ":" + secondsElapsed;
+      if (hoursElapsed === "00") {
+        elapsedString = minutesElapsed + ":" + secondsElapsed;
+      }
+
+      // update the duration time
+      let secondsTotalInt = Math.round(secondsTotal);
+      let hoursTotal = Math.floor(secondsTotalInt / 3600);
+      secondsTotalInt %= 3600;
+      let minutesTotal = Math.floor(secondsTotalInt / 60);
+      secondsTotal = secondsTotalInt % 60;
+
+      minutesTotal = String(minutesTotal).padStart(2, "0");
+      hoursTotal = String(hoursTotal).padStart(2, "0");
+      secondsTotal = String(secondsTotal).padStart(2, "0");
+      let totalString = hoursTotal + ":" + minutesTotal + ":" + secondsTotal;
+      if (hoursTotal === "00") {
+        totalString = minutesTotal + ":" + secondsTotal;
+      }
+
+      let timerString = elapsedString + " / " + totalString;
+      let timerNode = document.createTextNode(timerString);
+      let timer = document.getElementById("audioTimer");
+      // timer.appendChild(timerNode);
+      timer.innerHTML = timerString;
+
+      // update the progress bar
       let width = (audio.seek() / audio.duration()) * 100;
       let progressWidth = Math.round(width * 100) / 100;
       let remainingWidth = Math.round((100.0 - width) * 100) / 100;

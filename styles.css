@@ -266,7 +266,7 @@ header.isScrolled {
     margin-top: 1rem;
 }
 .latestAudio {
-    padding-top: 1in;
+    /* padding-top: 1in; */
     padding-bottom: 1rem;
     align-self: center;
 }
@@ -454,8 +454,18 @@ header.isScrolled {
     display:flex;
     flex-direction:column;
 }
-.audioControls {
+.audioDashboard {
+    display: flex;
     height:60%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.audioTimer {
+    width:10rem;
+}
+.audioControls {
+    height:100%;
     width: 100%;
     background-color:black;
     display: flex;
