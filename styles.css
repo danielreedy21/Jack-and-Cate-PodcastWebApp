@@ -200,7 +200,7 @@ header.isScrolled {
     background-color: var(--episodes-color);
     color: var(--episode-text-color);
     box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
-    /* overflow: scroll; */
+    overflow: scroll;
 
     /* border-radius: 20px; */
     border-top-right-radius: 20px;
@@ -323,7 +323,7 @@ header.isScrolled {
 .descriptionSection h4 {
     align-self: center;
     width:100%;
-    /* overflow:scroll; */
+    overflow:scroll;
     margin-block-start: 0px;
     margin-block-end: 0px;
 }
